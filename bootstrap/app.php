@@ -12,6 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->alias([
+            'cabecera.seguridad' => App\Http\Middleware\AgregarCabeceraSeguridad::class,
+            'sanitizar' => App\Http\Middleware\SanitizarParametros::class,
         //
         $middleware->alias([
             'clave.acceso'=>App\Http\Middleware\ValidarClaveAcceso::class
