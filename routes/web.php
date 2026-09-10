@@ -16,3 +16,6 @@ Route::get('/validar-codigo', function(Request $request){
         'codigo' => $request->input('codigo')
     ]);
 })->middleware('sanitizar');
+Route::get('/area-protegida', function () {
+    return 'Has entrado al área protegida';
+})->middleware('clave.acceso');

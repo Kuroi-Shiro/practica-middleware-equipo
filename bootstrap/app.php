@@ -15,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'cabecera.seguridad' => App\Http\Middleware\AgregarCabeceraSeguridad::class,
             'sanitizar' => App\Http\Middleware\SanitizarParametros::class,
+        //
+        $middleware->alias([
+            'clave.acceso'=>App\Http\Middleware\ValidarClaveAcceso::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
